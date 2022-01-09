@@ -24,14 +24,15 @@ async function run() {
         const ordersCollection = database.collection('orders');
 
         app.post('/orders', async (req, res) => {
-
+            const order = req.body;
+            const result = await ordersCollection.insertOne(order)
+            console.log(result)
+            res.json(result)
         })
 
 
 
 
-
-        //--------------------ei porjonto no change
     }
 
     finally {
